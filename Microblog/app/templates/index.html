@@ -1,0 +1,36 @@
+<!-- extend base layout -->
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Hi, {{ user.nickname }}!</h1>
+    {% if posts %}
+    {% for post in posts %}
+    <p>
+      {{ post.author.nickname }} is <b>{{ post.age }}</b> years old. 
+    </p>
+    {% endfor %}
+    {% endif %}
+    <ul>
+    {% for user in user_list %}
+    <li>{{user.id}}: {{user.nickname}}, {{user.age}}</li>
+    {% endfor %}
+    </ul>
+    Add a new age!
+
+    
+	<form action="/submit" method=post>
+	  Name:<br>
+	  <input type="text" name="name" >
+	  <br>
+	   Age<br>
+	  <input type="text" name="age">
+	  <br><br>
+	  <input type="submit" value="Submit">
+	</form> 
+	
+
+{% endblock %}
+
+
+
+
